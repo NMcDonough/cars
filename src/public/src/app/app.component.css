@@ -1,0 +1,16 @@
+.navbar-brand{
+    font-size: 25px;
+}
+.nav-link{
+    font-size: 15px;
+    margin-right: 50px;
+}
+.jumbotron{
+    background-color: #B1A296;
+}
+.navbar{
+    background-color: #379683;
+}
+nav p{
+    margin-top: 15px;
+}

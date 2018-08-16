@@ -1,0 +1,32 @@
+<script type="javascript">
+</script>
+<div class="container">
+  <div class="titleBox">
+      <h1>{{ car.year + " " + car.make + " " + car.model }}</h1>
+      <a href="/home">Home</a>
+  </div>
+  <div class="bodyBox">
+    <img src="{{car.url}}" alt="{{car.make}}">
+    <div class="infoBox">
+        <table class="table-striped table-bordered">
+            <tr>
+              <th>Year <span class="glyphicon glyphicon-calendar"></span></th>
+              <td>{{car.year}}</td>
+            </tr>
+            <tr>
+              <th>Color <span class="glyphicon glyphicon-tint"></span></th>
+              <td>{{car.color}}</td>
+            </tr>
+            <tr>
+              <th>Miles <span class="glyphicon glyphicon-road"></span></th>
+              <td>{{car.miles}}</td>
+            </tr>
+            <tr>
+              <th>Price <span class="glyphicon glyphicon-piggy-bank"></span></th>
+              <td>~${{car.price}}</td>
+            </tr>
+          </table><br>
+          <a href="{{wikiUrl}}"><button class="btn"><img src="https://image.flaticon.com/icons/svg/33/33949.svg" id="wiki"/>More information</button></a>
+          <p></p>
+    </div>
+  </div>

@@ -1,0 +1,35 @@
+body{
+    background-color: #7395AE;
+    margin: 0;
+}
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+    border-radius: 30px;
+}
+.fakeimg img{
+    width: 350px;
+    height: 200px;
+    border-radius: 30px;
+}
+.container .btn:first-of-type{
+    font-size:17px;
+    margin-left: 50px;
+}
+.btn{
+    border: 1px solid gray;
+    box-shadow: 5px 2px 2px black;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+}
+#arrow{
+    margin-left: 5px;
+}
+.container a{
+    font-size: 17px;
+}
+p{
+    font-size: 12px;
+}
