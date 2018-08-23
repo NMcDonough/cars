@@ -1,7 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>Car Cloud</h1>
   <p>The foremost online luxury car dealer</p> 
@@ -18,7 +14,7 @@
         <a class="nav-link" [routerLink]="['/home']">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cars</a>
+        <a class="nav-link" [routerLink]="['/cars']">Cars</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Services</a>
@@ -27,9 +23,22 @@
         <a class="nav-link" href="#">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']">Log in</a>
+          <a class="nav-link" id="login" data-toggle="modal" data-target="#myModal">Log in</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link" id="search">Search</a>
       </li>
     </ul>
   </div>  
 </nav>
 <router-outlet></router-outlet>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+  </div>
+</div>

@@ -8,11 +8,13 @@ import { CarService } from '../car.service';
 })
 export class HomeComponent implements OnInit {
   randomCar: any;
+  logged: any;
 
   constructor(private cs: CarService){}
 
   ngOnInit(){
     this.findRandomCar();
+    this.logged = false;
   }
 
   findRandomCar(){
