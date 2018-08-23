@@ -33,3 +33,11 @@ body{
 p{
     font-size: 12px;
 }
+#article1{
+    background-image: url("../../assets/caddy.jpeg");
+    background-repeat: no-repeat;
+    background-color: white;
+}
+#article2{
+    background-image: url("../../assets/syracuse.jpeg")
+}

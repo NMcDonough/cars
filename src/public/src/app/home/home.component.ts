@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     this.findRandomCar();
-    this.logged = false;
+    this.logged = true;
   }
 
   findRandomCar(){
