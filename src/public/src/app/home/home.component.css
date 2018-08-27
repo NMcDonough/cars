@@ -1,6 +1,7 @@
 body{
     background-color: #7395AE;
     margin: 0;
+    /* border: 1px solid red; */
 }
 .fakeimg {
     height: 200px;
@@ -40,4 +41,7 @@ p{
 }
 #article2{
     background-image: url("../../assets/syracuse.jpeg")
+}
+.container{
+    background-color: #7395AE;
 }

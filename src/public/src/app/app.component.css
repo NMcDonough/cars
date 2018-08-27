@@ -10,6 +10,8 @@
 }
 .navbar{
     background-color: #379683;
+    /* border: 1px solid red; */
+    margin-bottom: 0px;
 }
 nav p{
     margin-top: 15px;
@@ -18,7 +20,11 @@ nav p{
     background-color: rgba(0, 0, 0, 0);
     box-shadow: none;
     border: none;
+    height: 100%;
 }
 #search{
     margin-left: 30vw;
+}
+#myModal, .modal-body, .modal-dialog{
+    height: 500px;
 }

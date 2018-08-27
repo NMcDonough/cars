@@ -1,32 +1,77 @@
-<div class="container">
-  <div id="login-row" class="row justify-content-center align-items-center">
-      <div id="login-column" class="col-md-6">
-          <div class="box">
-              <div class="shape1"></div>
-              <div class="shape2"></div>
-              <div class="shape3"></div>
-              <div class="shape4"></div>
-              <div class="shape5"></div>
-              <div class="shape6"></div>
-              <div class="shape7"></div>
-              <div class="float">
-                  <form class="form" action="">
-                      <div class="form-group">
-                          <label for="username" class="text-white">Username:</label><br>
-                          <input type="text" name="username" id="username" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label for="password" class="text-white">Password:</label><br>
-                          <input type="password" name="password" id="password" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+<main ontouchstart class="with-hover">
+	<aside>
+		<div></div>
+		<div>
+			<p id="intro-signup" class="active"><strong>Car Cloud</strong> is even better with&nbsp;an&nbsp;account.</p>
+			<p id="intro-login">Welcome back to<br/><strong>Car Cloud</strong>!</p>
+		</div>
+	</aside>
+	<section>
+		<h1>
+			<a id="link-signup" class="active">Sign Up</a>
+			<a id="link-login">Log In</a>
+		</h1>
+		<form id="form-signup" class="active">
+			<div>
+				<fieldset>
+					<div>
+						<label for="name">Name</label>
+						<input id="name" type="text" placeholder="John Doe"/>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div>
+						<label for="email">Email</label>
+						<input id="email" type="email" placeholder="john@doe.com"/>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div>
+						<label for="password">Password</label>
+						<input id="password" type="password" placeholder="••••••••"/>
+					</div>
+				</fieldset>
+			</div>
 
-<!-- Login build by dimi130473 -->
+			<ul>
+				<li>
+					<button class="fb">Connect with Facebook</button>
+				</li>
+				<li>
+					<button class="tw">Connect with Twitter</button>
+				</li>
+			</ul>
+			
+			<input type="submit" value="Sign Up"/>
+		</form>
+		<form id="form-login">
+			<div>
+				<fieldset>
+					<div>
+						<label for="email">Email</label>
+						<input id="email" type="email" placeholder="john@doe.com"/>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div>
+						<label for="password">Password</label>
+						<input id="password" type="password" placeholder="••••••••"/>
+					</div>
+				</fieldset>
+			</div>
+
+			<ul>
+				<li>
+					<button class="fb">Connect with Facebook</button>
+				</li>
+				<li>
+					<button class="tw">Connect with Twitter</button>
+				</li>
+			</ul>
+			
+			<input type="submit" value="Log In"/>
+		</form>
+	</section>
+</main>
+
+<!-- Login/registration designed by Gabrielle Wee -->
