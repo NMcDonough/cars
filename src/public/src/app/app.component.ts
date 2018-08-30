@@ -14,7 +14,6 @@ export class AppComponent {
       $("#id01").hide();
       $('#login').click(function(){
         $('#id01').toggle();
-        console.log("cool");
       })
     })
   }

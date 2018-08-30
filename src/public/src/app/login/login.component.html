@@ -11,24 +11,24 @@
 			<a id="link-signup" class="active">Sign Up</a>
 			<a id="link-login">Log In</a>
 		</h1>
-		<form id="form-signup" class="active">
+		<form id="form-signup" class="active" (submit) = "submit()">
 			<div>
 				<fieldset>
 					<div>
-						<label for="name">Name</label>
-						<input id="name" type="text" placeholder="John Doe"/>
+						<label for="newUser.name">Name</label>
+						<input id="newUser.name" name="newUser.name" [(ngModel)]='newUser.name' #name='ngModel' type="text" placeholder="John Doe"/>
 					</div>
 				</fieldset>
 				<fieldset>
 					<div>
 						<label for="email">Email</label>
-						<input id="email" type="email" placeholder="john@doe.com"/>
+						<input id="newUser.email" type="email" name="newUser.email" [(ngModel)]='newUser.email' #email='ngModel' placeholder="john@doe.com"/>
 					</div>
 				</fieldset>
 				<fieldset>
 					<div>
 						<label for="password">Password</label>
-						<input id="password" type="password" placeholder="••••••••"/>
+						<input id="newUser.password" name="newUser.password" [(ngModel)]='newUser.password' #password='ngModel' type="password" placeholder="••••••••"/>
 					</div>
 				</fieldset>
 			</div>

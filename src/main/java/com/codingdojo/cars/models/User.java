@@ -30,8 +30,6 @@ public class User {
     private String email;
     @Size(min=8, message="Password must be at least 8 characters")
 	private String password;
-    @Transient
-    private String passwordConfirmation;
     
     @OneToMany(mappedBy = "seller", fetch = FetchType.LAZY)
     private List<Car> cars_sell;
@@ -43,11 +41,10 @@ public class User {
     
     public User() {}
 
-	public User(String name, String email, String password, String passwordConfirmation){
+	public User(String name, String email, String password){
         this.name = name;
         this.email = email;
         this.password = password;
-        this.passwordConfirmation = passwordConfirmation;
     }
 	
 
@@ -97,14 +94,6 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getPasswordConfirmation() {
-		return passwordConfirmation;
-	}
-
-	public void setPasswordConfirmation(String passwordConfirmation) {
-		this.passwordConfirmation = passwordConfirmation;
 	}
 
 	// other getters and setters removed for brevity

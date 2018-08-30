@@ -7,6 +7,7 @@ import { CarsComponent } from './cars/cars.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CarService } from './car.service';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CarComponent } from './car/car.component'
@@ -22,7 +23,8 @@ import { CarComponent } from './car/car.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [CarService],
   bootstrap: [AppComponent]

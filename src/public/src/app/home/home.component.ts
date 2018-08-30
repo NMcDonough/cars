@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   findRandomCar(){
     this.cs.allCars().subscribe(data => {
       this.randomCar = data[Math.floor(Math.random() * data.length)];
-      console.log(this.randomCar);
     })
   }
 }
