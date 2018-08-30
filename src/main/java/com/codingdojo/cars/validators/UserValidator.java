@@ -1,16 +1,19 @@
-package com.codingdojo.cars.services;
+package com.codingdojo.cars.validators;
+
+import javax.validation.Validator;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 
 import com.codingdojo.cars.models.User;
+import com.codingdojo.cars.services.UserService;
 
 @Component
-public class Validator {
+public class UserValidator{
 
 	public final UserService us;
 	
-	public Validator(UserService us) {
+	public UserValidator(UserService us) {
 		this.us = us;
 	}
 	

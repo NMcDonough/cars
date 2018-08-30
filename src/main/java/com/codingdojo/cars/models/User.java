@@ -25,8 +25,9 @@ public class User {
     private Long id;
     @Size(min = 3, message="Name must have at least 3 characters")
     private String name;
+    @Column(unique = true)
     @Size(max = 50, message="Email address field must be 50 characters or fewer")
-    @Email(message="Invalid email address")
+    @Email(message="{exists.email}")
     private String email;
     @Size(min=8, message="Password must be at least 8 characters")
 	private String password;

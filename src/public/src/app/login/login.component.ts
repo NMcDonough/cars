@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 	newUser: any;
 	user: any;
+	errors: any;
 
   constructor(private us: UserService, private router: Router) { }
 
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 	this.us.getBlankUser().subscribe(data => {
 		this.newUser = data;
 	});
+	this.errors = null;
 
     var modal = document.getElementById('id01');
 
@@ -61,7 +63,11 @@ export class LoginComponent implements OnInit {
 	
 	submit(){
 		this.us.createUser(this.newUser).subscribe(data => {
-			console.log(data);
+			if(data['errors']){
+				this.errors = data['errors'];
+			}
+			else
+				console.log(data);
 		})
 	}
 }

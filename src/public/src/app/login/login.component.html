@@ -13,7 +13,9 @@
 		</h1>
 		<form id="form-signup" class="active" (submit) = "submit()">
 			<div>
+				
 				<fieldset>
+						<p *ngIf="errors != null" class='red'>Email already in use</p>
 					<div>
 						<label for="newUser.name">Name</label>
 						<input id="newUser.name" name="newUser.name" [(ngModel)]='newUser.name' #name='ngModel' type="text" placeholder="John Doe"/>
