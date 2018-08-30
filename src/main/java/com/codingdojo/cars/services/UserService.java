@@ -19,4 +19,12 @@ public class UserService {
         user.setPassword(hashed);
         return ur.save(user);
     }
+	
+	public User findByEmail(String email) {
+		User u = this.ur.findByEmail(email);
+		if(u != null)
+			return u;
+		else
+			return null;
+	}
 }

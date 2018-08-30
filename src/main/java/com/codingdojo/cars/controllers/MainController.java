@@ -3,6 +3,7 @@ package com.codingdojo.cars.controllers;
 import java.util.Collection;
 import java.util.Optional;
 
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,15 +15,18 @@ import com.codingdojo.cars.models.Car;
 import com.codingdojo.cars.models.User;
 import com.codingdojo.cars.repos.CarRepo;
 import com.codingdojo.cars.services.UserService;
+import com.codingdojo.cars.services.Validator;
 
 @RestController
 public class MainController {
 	private CarRepo cr;
 	private UserService us;
+	private Validator v;
 	
-	public MainController(CarRepo cr, UserService us) {
+	public MainController(CarRepo cr, UserService us, Validator v) {
 		this.cr=cr;
 		this.us = us;
+		this.v = v;
 	}
 	
 	//Returns all cars in the database
@@ -46,10 +50,15 @@ public class MainController {
 		return new User();
 	}
 	
-	@RequestMapping(value="api/user", method=RequestMethod.POST)
+	@RequestMapping(value="api/user", method=RequestMethod.POST, produces="application/JSON")
 	@CrossOrigin(origins="http://localhost:4200")
-	public User newUser(@RequestBody User user){
-		this.us.createUser(user);
-		return user;
+	public String newUser(@RequestBody User user, BindingResult result){
+		v.validateEmail(user, result);
+		if(result.hasErrors())
+			return "errors";
+		else{
+			this.us.createUser(user);
+			return "success";
+		}
 	}
 }
