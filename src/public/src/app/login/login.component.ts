@@ -12,14 +12,17 @@ export class LoginComponent implements OnInit {
 	newUser: any;
 	user: any;
 	errors: any;
+	success: any;
 
   constructor(private us: UserService, private router: Router) { }
 
   ngOnInit() {
 	this.us.getBlankUser().subscribe(data => {
 		this.newUser = data;
+		this.user = data;
 	});
 	this.errors = null;
+	this.success = false;
 
     var modal = document.getElementById('id01');
 
@@ -66,7 +69,15 @@ export class LoginComponent implements OnInit {
 			if(data['errors']){
 				this.errors = data['errors'];
 			}
-			else
+			else{
+				this.success = true;
+			}
+		})
+	}
+
+	login(){
+		this.us.login(this.user).subscribe(data => {
+			if(data['name'] != null)
 				console.log(data);
 		})
 	}

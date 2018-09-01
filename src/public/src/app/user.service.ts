@@ -15,4 +15,8 @@ export class UserService {
   getBlankUser(){
     return this._http.get("http://localhost:8080/api/user/blank");
   }
+
+  login(user){
+    return this._http.post("http://localhost:8080/login", user);
+  }
 }

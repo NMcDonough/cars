@@ -16,6 +16,7 @@
 				
 				<fieldset>
 						<p *ngIf="errors != null" class='red'>Email already in use</p>
+						<p *ngIf="success">Successfully registered! Please log in.</p>
 					<div>
 						<label for="newUser.name">Name</label>
 						<input id="newUser.name" name="newUser.name" [(ngModel)]='newUser.name' #name='ngModel' type="text" placeholder="John Doe"/>
@@ -46,18 +47,18 @@
 			
 			<input type="submit" value="Sign Up"/>
 		</form>
-		<form id="form-login">
+		<form id="form-login" (submit)="login()">
 			<div>
 				<fieldset>
 					<div>
 						<label for="email">Email</label>
-						<input id="email" type="email" placeholder="john@doe.com"/>
+						<input id="user.email" name="user.email" [(ngModel)]='user.email' #uemail='ngModel' type="text" placeholder="John Doe"/>
 					</div>
 				</fieldset>
 				<fieldset>
 					<div>
 						<label for="password">Password</label>
-						<input id="password" type="password" placeholder="••••••••"/>
+						<input id="user.password" name="user.password" [(ngModel)]='user.password' #upassword="ngModel" type="password" placeholder="••••••••"/>
 					</div>
 				</fieldset>
 			</div>

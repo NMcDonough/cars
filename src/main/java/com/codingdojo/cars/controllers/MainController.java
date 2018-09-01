@@ -20,6 +20,7 @@ import com.codingdojo.cars.models.User;
 import com.codingdojo.cars.repos.CarRepo;
 import com.codingdojo.cars.services.UserService;
 import com.codingdojo.cars.validators.UserValidator;
+import com.mindrot.jbcrypt.BCrypt;
 
 @RestController
 public class MainController {
@@ -58,8 +59,6 @@ public class MainController {
 	@CrossOrigin(origins="http://localhost:4200")
 	public String newUser(@RequestBody User user, BindingResult result){
 		v.validateEmail(user, result);
-
-		System.out.println(result.getAllErrors().toString());
 		
 		if(result.hasErrors())
 			return "{\"errors\":\"Email is invalid or already in use\"}";
@@ -67,5 +66,15 @@ public class MainController {
 			this.us.createUser(user);
 			return "{\"message\":\"User successfully created\"}";
 		}
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@CrossOrigin(origins="http://localhost:4200")
+	public User login(@RequestBody User user) {
+		User u = this.us.findByEmail(user.getEmail());
+		if(BCrypt.checkpw(user.getPassword(), u.getPassword()))
+			return u;
+		else
+			return null;
 	}
 }
