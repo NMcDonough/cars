@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CarService } from '../car.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,24 @@ import { CarService } from '../car.service';
 export class HomeComponent implements OnInit {
   randomCar: any;
   logged: any;
+  @Input()
+  user: any;
 
-  constructor(private cs: CarService){}
+  constructor(private cs: CarService, private us: UserService){}
 
   ngOnInit(){
     this.findRandomCar();
-    this.logged = false;
+    this.logged = this.us.logged;
   }
 
   findRandomCar(){
     this.cs.allCars().subscribe(data => {
       this.randomCar = data[Math.floor(Math.random() * data.length)];
     })
+  }
+
+  updateUser(): void {
+    this.user = this.us.user;
+    this.logged = this.us.logged;
   }
 }

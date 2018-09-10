@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from "../user.service";
 import * as $ from 'jquery';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,17 +21,17 @@ export class LoginComponent implements OnInit {
 		this.newUser = data;
 		this.user = data;
 	});
-	this.errors = null;
+	this.errors = false;
 	this.success = false;
 
     var modal = document.getElementById('id01');
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
+    // window.onclick = function(event) {
+    // if (event.target == modal) {
+    //     modal.style.display = "none";
+    //   }
+    // }
 			$("main").addClass("pre-enter").removeClass("with-hover");
 		setTimeout(function(){
 			$("main").addClass("on-enter");
@@ -77,8 +77,16 @@ export class LoginComponent implements OnInit {
 
 	login(){
 		this.us.login(this.user).subscribe(data => {
-			if(data['name'] != null)
-				console.log(data);
+			if(data == null){
+				this.errors = true;
+				console.log(this.errors);
+			}
+			else{
+				this.us.loggedIn(data);
+				console.log("test");
+				var modal = document.getElementById('id01');
+				modal.style.display = "none";
+			}
 		})
 	}
 }

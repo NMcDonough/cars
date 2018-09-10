@@ -38,7 +38,8 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-body">
-        <app-login></app-login>
+        <app-login (loggedIn)="sendUser($event)"></app-login>
       </div>
   </div>
 </div>
+<script type="javascript" src="../Disappear.js"></script>

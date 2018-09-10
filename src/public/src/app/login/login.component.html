@@ -15,8 +15,8 @@
 			<div>
 				
 				<fieldset>
-						<p *ngIf="errors != null" class='red'>Email already in use</p>
-						<p *ngIf="success">Successfully registered! Please log in.</p>
+						<p *ngIf="errors" class='red'>Email already in use</p>
+						<p *ngIf="success" class="grn">Successfully registered! Please log in.</p>
 					<div>
 						<label for="newUser.name">Name</label>
 						<input id="newUser.name" name="newUser.name" [(ngModel)]='newUser.name' #name='ngModel' type="text" placeholder="John Doe"/>
@@ -50,6 +50,7 @@
 		<form id="form-login" (submit)="login()">
 			<div>
 				<fieldset>
+					<p *ngIf="errors" class="red">Username or password incorrect</p><br>
 					<div>
 						<label for="email">Email</label>
 						<input id="user.email" name="user.email" [(ngModel)]='user.email' #uemail='ngModel' type="text" placeholder="John Doe"/>
@@ -72,7 +73,7 @@
 				</li>
 			</ul>
 			
-			<input type="submit" value="Log In"/>
+			<input *ngIf="upassword.valid && uemail.valid && uemail.dirty && upassword.dirty" type="submit" value="Log In"/>
 		</form>
 	</section>
 </main>

@@ -34,6 +34,12 @@ public class MainController {
 		this.v = v;
 	}
 	
+	//Test route - IGNORE
+	@RequestMapping("/")
+	public String serve() {
+		return "index.jsp";
+	}
+	
 	//Returns all cars in the database
 	@RequestMapping("api/cars/all")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -55,6 +61,7 @@ public class MainController {
 		return new User();
 	}
 	
+	//Registers a new account
 	@RequestMapping(value="api/user", method=RequestMethod.POST, produces="application/JSON")
 	@CrossOrigin(origins="http://localhost:4200")
 	public String newUser(@RequestBody User user, BindingResult result){
@@ -68,13 +75,18 @@ public class MainController {
 		}
 	}
 	
+	//Logs user in
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	@CrossOrigin(origins="http://localhost:4200")
 	public User login(@RequestBody User user) {
 		User u = this.us.findByEmail(user.getEmail());
-		if(BCrypt.checkpw(user.getPassword(), u.getPassword()))
-			return u;
-		else
+		if(u == null)
 			return null;
+		else {
+			if(BCrypt.checkpw(user.getPassword(), u.getPassword()))
+				return u;
+			else
+				return null;
+		}
 	}
 }
